@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Doan.View.Account.AccountPage">
+    <ContentPage.Content>
+         <StackLayout>
+             <StackLayout >
+                   <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="GotoProfile" />
+                    </StackLayout.GestureRecognizers>
+                    <StackLayout Padding="15" Orientation="Horizontal">
+                        <Image Source="profile.png"/>
+                        <StackLayout Margin="10,0,0,0">
+                            <Label Text="Profile"/>
+                            <Label Text="Username, Password.." FontSize="11"/>
+                        </StackLayout>
+                    </StackLayout>
+                    <BoxView Color="LightGray" HeightRequest="1"/>
+              </StackLayout>
+             <StackLayout >
+                   <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="GotoOrder" />
+                    </StackLayout.GestureRecognizers>
+                    <StackLayout Padding="15" Orientation="Horizontal">
+                        <Image Source="profile.png"/>
+                        <StackLayout Margin="10,0,0,0">
+                            <Label Text="Cart"/>
+                            <Label Text="Sneaker, Shirt.." FontSize="11"/>
+                        </StackLayout>
+                    </StackLayout>
+                    <BoxView Color="LightGray" HeightRequest="1"/>
+              </StackLayout>
+             <StackLayout >
+                   <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="GotoLogin" />
+                    </StackLayout.GestureRecognizers>
+                    <StackLayout Padding="15" Orientation="Horizontal">
+                        <Image Source="profile.png"/>
+                        <StackLayout Margin="10,0,0,0">
+                            <Label Text="Login"/>
+                            <Label Text="Sign Up, Forgot password.." FontSize="11"/>
+                        </StackLayout>
+                    </StackLayout>
+                    <BoxView Color="LightGray" HeightRequest="1"/>
+              </StackLayout>
+         </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

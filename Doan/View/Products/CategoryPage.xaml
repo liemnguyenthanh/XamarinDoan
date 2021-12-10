@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Doan.View.Products.CategoryPage"
+    xmlns:listView="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+    xmlns:dataSource="clr-namespace:Syncfusion.DataSource;assembly=Syncfusion.DataSource.Portable"
+    >
+    <ContentPage.Content>
+        <StackLayout Margin="15 ,0 ,0 ,10">
+            <Label Text="Shop By Category" />
+            <listView:ListView x:Name="list" Grid.Row="2" 
+                                 SelectionBackgroundColor="#d3d3d3" ItemSize="70" ItemsSource="{Binding contactsinfo}"
+                                 ItemSpacing="0,0,5,0" SelectionMode="Single" Orientation="Horizontal">
+                <listView:ListView.ItemTemplate>
+                    <DataTemplate x:Name="ItemTemplate">
+                        <ViewCell>
+                            <ViewCell.View>
+                                <Grid x:Name="grid" RowSpacing="5">
+                                    <Image Source="{Binding ContactImage}"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center"
+                           HeightRequest="50">
+                                    </Image>
+                                </Grid>
+                            </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+                </listView:ListView.ItemTemplate>
+            </listView:ListView>
+            <Button Text="product" x:Name="gotoProduct" Clicked="gotoProduct_Clicked" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
