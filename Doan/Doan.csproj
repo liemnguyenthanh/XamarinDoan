@@ -23,12 +23,14 @@
     <None Remove="Xamarin.CommunityToolkit" />
     <None Remove="View\Products\" />
     <None Remove="View\Account\" />
+    <None Remove="View\Filter\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="View\" />
     <Folder Include="Model\" />
     <Folder Include="View\Products\" />
     <Folder Include="View\Account\" />
+    <Folder Include="View\Filter\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="View\Products\CategoryPage.xaml.cs">

@@ -3,29 +3,77 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="Doan.View.Products.ProductPage">
-  <StackLayout>
-      <!--<ListView x:Name="itemList" >
-          <ListView.ItemTemplate>
-              <DataTemplate>
-                  <ViewCell>
-                     
-                  </ViewCell>
-              </DataTemplate>
-          </ListView.ItemTemplate>
-      </ListView>-->
-      <!--<ScrollView Orientation="Vertical">
-          <FlexLayout Direction="Row" Wrap="Wrap" JustifyContent="SpaceEvenly"
-                      VerticalOptions="Center" x:Name="itemList">
-               <StackLayout>
-                    <Frame HasShadow="False" Padding="5"
-                            BorderColor="LightGray">
-                        <StackLayout>
-                            <Image WidthRequest="100" HeightRequest="100" Source="{Binding image}"/>
-                            <Label Text="{Binding title}"/>
-                        </StackLayout>
-                    </Frame>
-                </StackLayout>
-          </FlexLayout>
-      </ScrollView>-->
-  </StackLayout>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <StackLayout Grid.Row="0">
+            <SearchBar TextChanged="SearchBar_TextChanged"/>
+           
+        </StackLayout>
+        <StackLayout Grid.Row="1">
+            <CollectionView SelectionMode="Single"
+                            x:Name="listProductView"
+                            SelectionChanged="listProductView_SelectionChanged"
+                            >
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical" Span="2" VerticalItemSpacing="10" HorizontalItemSpacing="10"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.EmptyView>
+                    <StackLayout>
+                        <Label Text="Not found Product" HorizontalOptions="Center"
+                               TextColor="DarkRed" FontSize="24" Margin="10"/>
+                    </StackLayout>
+                </CollectionView.EmptyView>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                         <StackLayout>
+                             <Frame HasShadow="False" Padding="5"
+                                    HeightRequest="240"
+                                    BorderColor="LightGray" CornerRadius="0" >
+                                 <StackLayout >
+                                    <Image Source="{Binding image}"
+                                        WidthRequest="130" HeightRequest="130" HorizontalOptions="Center"></Image>
+                                    <Label Text="{Binding name}" TextColor="Black" Margin="10, 10, 0, 0"></Label>
+                                    <Label Text="Cool Grey (2021)" FontSize="12" TextColor="DarkGray" Margin="10, 0"></Label>
+                                    <Label Text="{Binding price}" FontAttributes="Bold" TextColor="Black" Margin="10, 0"></Label>
+                                 </StackLayout>
+                             </Frame>
+                         </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </StackLayout>        
+    </Grid> 
+  <!--<ScrollView>
+     <FlexLayout Wrap="Wrap" x:Name="Shirts" IsVisible="False">
+        <Grid HeightRequest="290">
+            <StackLayout Padding="10" WidthRequest="150">
+                <Image Source="https://images.milledcdn.com/2021-07-31/iyMxJvItyy0CmfnN/sbhk8r_iwMu5.png"
+                    WidthRequest="130" HeightRequest="130" HorizontalOptions="Center"></Image>
+                <Label Text="Jordan 11 Retro" TextColor="Black" Margin="10, 10, 0, 0"></Label>
+                <Label Text="Cool Grey (2021)" TextColor="Black" Margin="10, 0"></Label>
+                <Label Text="Lowest Ask" FontAttributes="Italic" TextColor="Black" Margin="10, 10, 0, 0"></Label>
+                <Label Text="270 US$" FontAttributes="Bold" TextColor="Black" Margin="10, 0"></Label>
+            </StackLayout>
+            <Button BackgroundColor="Transparent" BorderWidth="1" BorderColor="LightGray"></Button>
+        </Grid>
+        <Grid HeightRequest="290">
+            <StackLayout Padding="10" WidthRequest="150">
+                <Image Source="https://images.milledcdn.com/2021-07-31/iyMxJvItyy0CmfnN/sbhk8r_iwMu5.png"
+                    WidthRequest="130" HeightRequest="130" HorizontalOptions="Center"></Image>
+                <Label Text="Jordan 11 Retro" TextColor="Black" Margin="10, 10, 0, 0"></Label>
+                <Label Text="Cool Grey (2021)" TextColor="Black" Margin="10, 0"></Label>
+                <Label Text="Lowest Ask" FontAttributes="Italic" TextColor="Black" Margin="10, 10, 0, 0"></Label>
+                <Label Text="270 US$" FontAttributes="Bold" TextColor="Black" Margin="10, 0"></Label>
+            </StackLayout>
+            <Button BackgroundColor="Transparent" BorderWidth="1" BorderColor="LightGray"></Button>
+        </Grid>
+    </FlexLayout>
+      <FlexLayout BindableLayout.ItemsSource="{Binding User.productList}"
+            />
+  </ScrollView>-->
 </ContentPage>

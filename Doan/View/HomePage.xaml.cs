@@ -23,7 +23,6 @@ namespace Doan.View
         }
         private void BuyOrBid_Clicked(object sender , EventArgs e)
         {
-            Navigation.PushAsync(new ProductPage());
         }
     }
 }

@@ -13,7 +13,7 @@
                         <Image Source="profile.png"/>
                         <StackLayout Margin="10,0,0,0">
                             <Label Text="Profile"/>
-                            <Label Text="Username, Password.." FontSize="11"/>
+                            <Label x:Name="profile_user" Text="Username, Password.." FontSize="11"/>
                         </StackLayout>
                     </StackLayout>
                     <BoxView Color="LightGray" HeightRequest="1"/>
@@ -30,8 +30,8 @@
                         </StackLayout>
                     </StackLayout>
                     <BoxView Color="LightGray" HeightRequest="1"/>
-              </StackLayout>
-             <StackLayout >
+             </StackLayout>
+             <StackLayout x:Name="loginStack">
                    <StackLayout.GestureRecognizers>
                         <TapGestureRecognizer Tapped="GotoLogin" />
                     </StackLayout.GestureRecognizers>
@@ -39,10 +39,17 @@
                         <Image Source="profile.png"/>
                         <StackLayout Margin="10,0,0,0">
                             <Label Text="Login"/>
-                            <Label Text="Sign Up, Forgot password.." FontSize="11"/>
+                            <Label Text="Username, password ..." FontSize="11"/>
                         </StackLayout>
                     </StackLayout>
                     <BoxView Color="LightGray" HeightRequest="1"/>
+             </StackLayout>
+             <StackLayout x:Name="logoutStack">
+                   <Button BackgroundColor="AliceBlue"
+                           Margin="0,243,0,0"
+                           x:Name="btnLogout"
+                           Clicked="btnLogout_Clicked"
+                           Text="Logout"/>
               </StackLayout>
          </StackLayout>
     </ContentPage.Content>

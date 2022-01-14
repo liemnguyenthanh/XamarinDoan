@@ -3,29 +3,72 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="Doan.View.SignInPage">
-    <StackLayout Margin="10">
-        <StackLayout>
-            <Label FontAttributes="Bold" FontSize="24"
-                Text="StockX" HorizontalOptions="Center"/>
-        </StackLayout>
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <StackLayout BackgroundColor="BlanchedAlmond" Grid.Column="0">
-                <Label Text="Login" HorizontalOptions="Center"/>
+    <ScrollView>
+        <StackLayout Spacing="1" BackgroundColor="White">
+            <Label Text="XStock" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+                   WidthRequest="200" HeightRequest="80" FontSize="30"></Label>
+            <BoxView Color="Gray" HeightRequest="1" Opacity="0.5"></BoxView>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Button Text="Sign Up" TextTransform="None" TextColor="Black" Margin="0, 10, 0, 0"
+                        Grid.Row="0" Grid.Column="0" BackgroundColor="Transparent" Clicked="ExchangeSignUp_Clicked" x:Name="ExchangeSignUp"></Button>
+                <BoxView Color="Black" HeightRequest="1" Grid.Row="0" Grid.Column="0" VerticalOptions="EndAndExpand" x:Name="BoxViewOfSignUp"></BoxView>
+                <Button Text="Log In" TextTransform="None" TextColor="Gray" Clicked="ExchangeLogin_Clicked" x:Name="ExchangeLogin"
+                        Grid.Row="0" Grid.Column="1" BackgroundColor="Transparent"></Button>
+                <BoxView Color="Gray" HeightRequest="1" Grid.Row="0" Grid.Column="1" VerticalOptions="EndAndExpand" x:Name="BoxViewOfLogIn"></BoxView>
+            </Grid>
+            <Grid>
+                <Image Source="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/2048px-Google_%22G%22_Logo.svg.png"
+                       WidthRequest="15" HeightRequest="15" HorizontalOptions="StartAndExpand" Margin="80, 14, 0, 0"></Image>
+                <Button Text="Continue with Google" TextTransform="None" TextColor="Black"
+                    BorderWidth="1" BorderColor="Black" BackgroundColor="Transparent"
+                    Margin="0, 15, 0, 0" Padding="100, 5" HorizontalOptions="Center"></Button>
+            </Grid>
+            <Grid>
+                <Image Source="https://cdn.iconscout.com/icon/free/png-256/facebook-2978305-2669645.png"
+                       WidthRequest="25" HeightRequest="25" HorizontalOptions="StartAndExpand" Margin="73, 14, 0, 0"></Image>
+                <Button Text="Continue with Facebook" TextTransform="None" TextColor="Black"
+                    BorderWidth="1" BorderColor="Black" BackgroundColor="Transparent"
+                    Margin="0, 15, 0, 0" Padding="93, 5" HorizontalOptions="Center"></Button>
+            </Grid>
+            <Grid>
+                <Image Source="https://www.iconpacks.net/icons/2/free-twitter-logo-icon-2429-thumb.png"
+                       WidthRequest="20" HeightRequest="20" HorizontalOptions="StartAndExpand" Margin="80, 14, 0, 0"></Image>
+                <Button Text="Continue with Twitter" TextTransform="None" TextColor="Black"
+                    BorderWidth="1" BorderColor="Black" BackgroundColor="Transparent"
+                    Margin="0, 15, 0, 0" Padding="100, 5" HorizontalOptions="Center"></Button>
+            </Grid>
+            <Grid Margin="0, 20, 0, 0">
+                <BoxView Color="Gray" HeightRequest="1" Opacity="0.5" VerticalOptions="CenterAndExpand"></BoxView>
+                <Label Padding="10, 0" Text="OR" BackgroundColor="White" HorizontalOptions="CenterAndExpand"></Label>
+            </Grid>
+            <StackLayout x:Name="SignUp">
+                <Entry WidthRequest="350" HorizontalOptions="Center" Placeholder="Full Name" Keyboard="Text" x:Name="r_full_name"></Entry>
+                <Entry WidthRequest="350" HorizontalOptions="Center" Placeholder="Username" Keyboard="Email" x:Name="r_username"></Entry>
+                <Entry WidthRequest="350" HorizontalOptions="Center" Placeholder="Password" Keyboard="Text" x:Name="r_password" IsPassword="True"></Entry>
+                <Label Text="At least 8 characters, 1 uppercase letter, 1 number, 1 symbbol"
+                   TextColor="Black" FontSize="12" Margin="23, 0"></Label>
+                <StackLayout Orientation="Horizontal" Margin="0, 10, 0, 0">
+                    <CheckBox></CheckBox>
+                    <Label Text="By signing up, you agree to the Terms of Service and Privacy Policy"></Label>
+                </StackLayout>
+                <Button Text="Sign Up" x:Name="signup_btn" Clicked="signup_btn_Clicked" TextColor="White" BackgroundColor="Black" Margin="20"></Button>
             </StackLayout>
-            <StackLayout BackgroundColor="BlanchedAlmond" Grid.Column="1">
-                <Label Text="Sig Up" HorizontalOptions="Center"/>
+            <StackLayout x:Name="LogIn" IsVisible="False">
+                <Entry WidthRequest="350" HorizontalOptions="Center" Placeholder="Username" Keyboard="Text" x:Name="l_username"></Entry>
+                <Entry WidthRequest="350" HorizontalOptions="Center" Placeholder="Password" Keyboard="Text" x:Name="l_password" IsPassword="True"></Entry>
+                <Button Text="Forgot Password?" TextTransform="None" BackgroundColor="Transparent"
+                        HorizontalOptions="Center" VerticalOptions="Start"  ></Button>
+                <Button Text="Log In" x:Name="login_btn" Clicked="login_btn_Clicked" TextColor="White" BackgroundColor="Black" Margin="20"></Button>
+                <Label Text="By logging in, you agree to the Terms of Service and Privacy Policy" Margin="20, 0" FontSize="11.8"></Label>
             </StackLayout>
-        </Grid>
-        <StackLayout>
-            <Entry x:Name="usernameEn"  Placeholder ="Username"/>
-            <Entry x:Name="passwordEn" Placeholder="Password"/>
-            <Button Text="Log In" BackgroundColor="LightGray"
-                    TextColor="White" x:Name="submit" Clicked="submit_Clicked"/> 
         </StackLayout>
-    </StackLayout>
+    </ScrollView>
 </ContentPage>
 

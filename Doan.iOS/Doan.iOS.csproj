@@ -70,7 +70,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
+    <InterfaceDefinition Include="Resources\search.storyboard" />
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
@@ -143,5 +143,6 @@
     <BundleResource Include="Resources\Logo.png" />
     <BundleResource Include="Resources\profile.png" />
     <BundleResource Include="Resources\dashboard.png" />
+    <BundleResource Include="Resources\search.png" />
   </ItemGroup>
 </Project>

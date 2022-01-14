@@ -3,68 +3,69 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="Doan.View.Products.DetailProductPage">
-     <ScrollView>
+    <StackLayout>
+        <Grid Padding="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0" Grid.Row="0">
+                <Button BackgroundColor="Green"
+                        Text="Buy Product" TextColor="White"
+                        FontSize="18"
+                        x:Name="BuyPro"
+                        Clicked="BuyPro_Clicked"
+                        FontAttributes="Bold"
+                        BorderRadius="10"
+                        ></Button>
+            </Grid>
+            <Grid Grid.Column="1" Grid.Row="0" >
+                <Button BackgroundColor="Red"
+                        FontAttributes="Bold"
+                        FontSize="18"
+                        Text="Sell Or Ask" TextColor="White"
+                        BorderRadius="10"
+                        ></Button>
+            </Grid>
+        </Grid>
+        <BoxView HeightRequest="1" BackgroundColor="DarkGray"/>
+        <ScrollView>
         <StackLayout Margin="10" BackgroundColor="White">
-            <Grid>
-                <Button CornerRadius="10" 
-                    BackgroundColor="Transparent" BorderWidth="1"
-                    BorderColor="Black"></Button>
-                <Label Text="All" TextColor="Black" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"
-                       Margin="0, 0, 30, 0"></Label>
-                <Label Text="Size" TextColor="Black" VerticalOptions="CenterAndExpand" Margin="10"></Label>
-                <Image Source="https://cdn1.iconfinder.com/data/icons/arrows-vol-1-5/24/dropdown_arrow2-512.png"
-                       WidthRequest="10" HeightRequest="10" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand" Margin="10"></Image>
-            </Grid>
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition></RowDefinition>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-                <Grid Grid.Column="0" Grid.Row="0" BackgroundColor="Green">
-                    <StackLayout Padding="5">
-                        <Label Text="Buy or Bid" TextColor="white" FontAttributes="Bold" FontSize="Large"></Label>
-                        <Label Text="218 US$" TextColor="white" FontAttributes="Bold" FontSize="Large"></Label>
-                        <Label Text="Size 9" TextColor="white" FontAttributes="Bold"></Label>
-                    </StackLayout>
-                    <Button BackgroundColor="Transparent"></Button>
-                </Grid>
-                <Grid Grid.Column="1" Grid.Row="0" BackgroundColor="Red">
-                    <StackLayout Padding="5">
-                        <Label Text="Sell or Ask" TextColor="white" FontAttributes="Bold" FontSize="Large"></Label>
-                        <Label Text="225 US$" TextColor="white" FontAttributes="Bold" FontSize="Large"></Label>
-                        <Label Text="Size 6" TextColor="white" FontAttributes="Bold"></Label>
-                    </StackLayout>
-                    <Button BackgroundColor="Transparent"></Button>
-                </Grid>
-            </Grid>
-            <Label Text="JORDAN 12 RETRO" FontSize="Large" TextColor="Black" Margin="0, 10, 0, 0"></Label>
-            <Label Text="ROYALTY TAXI" FontSize="Medium" TextColor="Black"></Label>
+            <Label x:Name="p_name" Text="JORDAN 12 RETRO"
+                   FontSize="Large" TextColor="Black" FontAttributes="Bold"
+                   Margin="0, 10, 0, 0"></Label>
+           
             <Grid>
                 <Frame CornerRadius="15"
                    Padding="3"
-                   BorderColor="Black"
+                   BorderColor="DarkGray"
                    BackgroundColor="Transparent" 
                    HasShadow="False" HorizontalOptions="StartAndExpand">
-                    <Label Margin="2"
+                    <Label Margin="5"
+                           FontSize="10"
                        HorizontalOptions="Center" 
                        BackgroundColor="Transparent" 
                        Text="Condition: New" TextColor="Black"/>
                 </Frame>
                 <Frame CornerRadius="15"
                    Padding="3"
-                   BorderColor="Black"
+                   BorderColor="DarkGray"
                    BackgroundColor="Transparent" 
                    HasShadow="False" HorizontalOptions="StartAndExpand" Margin="110, 0, 0, 0">
-                    <Label Margin="2"
+                    <Label Margin="5"
+                           FontSize="10"
                        HorizontalOptions="Center" 
                        BackgroundColor="Transparent" 
                        Text="100% Authentic" TextColor="Black"/>
                 </Frame>
             </Grid>
-            <Image Source="Product.jpg" WidthRequest="250"></Image>
+            <Image x:Name="p_image" Source="https://cf.shopee.vn/file/e403b1f807b6805434f05f92e1232350_tn"
+                   WidthRequest="250"
+                   />
+             <Label x:Name="p_description" Margin="5,0,0,0" FontSize="12" TextColor="Black"></Label>
             <Frame HasShadow="False" HorizontalOptions="CenterAndExpand" BackgroundColor="LightGray"
                    CornerRadius="20" Padding="10, 5, 15, 5">
                 <StackLayout Orientation="Horizontal">
@@ -76,7 +77,8 @@
             <Grid>
                 <StackLayout HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand">
                     <Label Text="Last Sale" TextColor="Black"></Label>
-                    <Label Text="230 US$" TextColor="Black"></Label>
+                    <Label x:Name="p_price" Text="230 US$" FontSize="17" FontAttributes="Bold"
+                           TextColor="DarkCyan"></Label>
                     <StackLayout Orientation="Horizontal">
                         <Image Source="https://cdn-icons-png.flaticon.com/512/60/60995.png" WidthRequest="12"></Image>
                         <Label Text="-7 US$ (-2%)" TextColor="Black" FontSize="Micro"></Label>
@@ -84,7 +86,7 @@
                 </StackLayout>
                 <Button CornerRadius="2" BorderColor="Green" BackgroundColor="LightGreen" BorderWidth="1"
                        HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Padding="30, 15, 30, 15"
-                       Margin="170, 0, 0, 0" Text="View Market Data" TextColor="Green" FontAttributes="Bold">
+                       Margin="123, 0, 0, 0" Text="View Market Data" FontSize="13" TextColor="Green" FontAttributes="Bold">
                 </Button>
             </Grid>
             <Grid Margin="0, 10">
@@ -201,4 +203,6 @@
             </Grid>
         </StackLayout>
     </ScrollView>
+
+    </StackLayout>
 </ContentPage>

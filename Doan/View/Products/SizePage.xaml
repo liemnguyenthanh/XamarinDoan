@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Doan.View.Products.SizePage">
+        <StackLayout>
+            <Image x:Name="p_image" HeightRequest="170" />
+            <Label Text="Select Size " Margin="5,0,0,0" FontAttributes="Bold" FontSize="16"/>
+            <Frame HasShadow="true" HeightRequest="1" Padding="0"
+                   BackgroundColor="DarkGray">
+            </Frame>
+            <ScrollView Padding="5">
+                  <CollectionView SelectionMode="Single"
+                            x:Name="listSizesView"
+                            SelectionChanged="listSizesView_SelectionChanged"
+                           >
+                      <CollectionView.ItemsLayout>
+                        <GridItemsLayout Orientation="Vertical" Span="3"
+                                         VerticalItemSpacing="15" HorizontalItemSpacing="7"/>
+                    </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                    <StackLayout  >
+                                        <Frame BorderColor="DarkGray" CornerRadius="0"
+                                               HasShadow="False"
+                                                >
+                                            <Label  Text="{Binding }" HorizontalOptions="Center"
+                                                    TextColor="DarkSlateGray"/>
+                                        </Frame>
+                                    </StackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                   </CollectionView>
+            </ScrollView>
+        </StackLayout>
+</ContentPage>

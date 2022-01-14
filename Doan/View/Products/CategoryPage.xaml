@@ -3,32 +3,126 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="Doan.View.Products.CategoryPage"
-    xmlns:listView="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
-    xmlns:dataSource="clr-namespace:Syncfusion.DataSource;assembly=Syncfusion.DataSource.Portable"
     >
-    <ContentPage.Content>
-        <StackLayout Margin="15 ,0 ,0 ,10">
-            <Label Text="Shop By Category" />
-            <listView:ListView x:Name="list" Grid.Row="2" 
-                                 SelectionBackgroundColor="#d3d3d3" ItemSize="70" ItemsSource="{Binding contactsinfo}"
-                                 ItemSpacing="0,0,5,0" SelectionMode="Single" Orientation="Horizontal">
-                <listView:ListView.ItemTemplate>
-                    <DataTemplate x:Name="ItemTemplate">
-                        <ViewCell>
-                            <ViewCell.View>
-                                <Grid x:Name="grid" RowSpacing="5">
-                                    <Image Source="{Binding ContactImage}"
-                           VerticalOptions="Center"
-                           HorizontalOptions="Center"
-                           HeightRequest="50">
-                                    </Image>
-                                </Grid>
-                            </ViewCell.View>
-                        </ViewCell>
+    <Grid Padding="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="190"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <StackLayout>
+            <Label Text="Shop By Category"  FontAttributes="Bold"/>
+            <CollectionView SelectionMode="Single"
+                            x:Name="listCategoryView"
+                            ItemsLayout="HorizontalList"
+                            SelectionChanged="listCategoryView_SelectionChanged"
+                            >
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                            <StackLayout>
+                            <ImageButton WidthRequest="120"  HeightRequest="120" Source="{Binding image}"></ImageButton>
+                            <Label Text="{Binding title}" TextColor="Black" HorizontalOptions="Center" FontAttributes="Bold"></Label>
+                        </StackLayout>
                     </DataTemplate>
-                </listView:ListView.ItemTemplate>
-            </listView:ListView>
-            <Button Text="product" x:Name="gotoProduct" Clicked="gotoProduct_Clicked" />
+                </CollectionView.ItemTemplate>
+            </CollectionView>
         </StackLayout>
-    </ContentPage.Content>
+        <StackLayout Grid.Row="1">
+            <ScrollView>
+            <StackLayout>
+                <Grid>
+                    <Label Text="Most Popular Sneakers" TextColor="Black" FontAttributes="Bold" FontSize="20" Margin="10"></Label>
+                    <Button Text="See All" TextColor="DarkGreen"  FontAttributes="Bold" FontSize="16" BackgroundColor="Transparent" HorizontalOptions="End" TextTransform="None"></Button>
+                </Grid>
+                <FlexLayout Wrap="Wrap" x:Name="Sneakers" JustifyContent="SpaceAround">
+                    <Grid HeightRequest="320">
+                        <StackLayout Padding="10" WidthRequest="120">
+                            <Image Source="https://cf.shopee.vn/file/89e66993fcaec37f01dd43e50da7646e"
+                               WidthRequest="130" HeightRequest="130" HorizontalOptions="Center"></Image>
+                            <Label Text="T-Shirt 11 Retro" TextColor="Black" Margin="10, 10, 0, 0"></Label>
+                            <Label Text="Grey" TextColor="Black" Margin="10, 0"></Label>
+                            <Label Text="Lowest Ask" FontAttributes="Italic" TextColor="Black" Margin="10, 10, 0, 0"></Label>
+                            <Label Text="170 US$" FontAttributes="Bold" TextColor="Black" Margin="10, 0"></Label>
+                        </StackLayout>
+                        <Button BackgroundColor="Transparent" BorderWidth="1" BorderColor="LightGray"></Button>
+                    </Grid>
+                    <Grid HeightRequest="320">
+                        <StackLayout Padding="10" WidthRequest="120">
+                            <Image Source="https://cf.shopee.vn/file/0eee8fd87fdda6851dc4cfbc21b47dd5"
+                               WidthRequest="130" HeightRequest="130" HorizontalOptions="Center"></Image>
+                            <Label Text="Jordan 11 Retro" TextColor="Black" Margin="10, 10, 0, 0"></Label>
+                            <Label Text="Cool Grey (2021)" TextColor="Black" Margin="10, 0"></Label>
+                            <Label Text="Lowest Ask" FontAttributes="Italic" TextColor="Black" Margin="10, 10, 0, 0"></Label>
+                            <Label Text="270 US$" FontAttributes="Bold" TextColor="Black" Margin="10, 0"></Label>
+                        </StackLayout>
+                        <Button BackgroundColor="Transparent" BorderWidth="1" BorderColor="LightGray"></Button>
+                    </Grid>
+                </FlexLayout>
+
+                <Label Text="Popular Brands" TextColor="Black" FontAttributes="Bold" FontSize="20" Margin="10"></Label>
+                <FlexLayout JustifyContent="SpaceAround">
+                    <ImageButton WidthRequest="200" HeightRequest="120" Source="https://cdn.shopify.com/s/files/1/0087/7943/1993/products/POSITIONS-ASH1-B_275x.png?v=1635182997"></ImageButton>
+                    <ImageButton WidthRequest="200" HeightRequest="120" Source="https://owen.vn/media/catalog/product/cache/c8882b6eda5c6e13d11dd4f92b73552c/s/n/sn-qs6455_copy_1.png"></ImageButton>
+                </FlexLayout>
+
+                <!--<Grid>
+                    <Label Text="Trending Apparel" TextColor="Black" FontAttributes="Bold" FontSize="20" Margin="10"></Label>
+                    <Button Text="See All" TextColor="DarkGreen"  FontAttributes="Bold" FontSize="16" BackgroundColor="Transparent" HorizontalOptions="End" TextTransform="None"></Button>
+                </Grid>
+                <FlexLayout Wrap="Wrap" x:Name="Sneakers_1" JustifyContent="SpaceAround">
+                    <Grid HeightRequest="280">
+                        <StackLayout Padding="10" WidthRequest="160">
+                            <Image Source="https://images.milledcdn.com/2021-07-31/iyMxJvItyy0CmfnN/sbhk8r_iwMu5.png"
+                               WidthRequest="130" HeightRequest="130" HorizontalOptions="Center"></Image>
+                            <Label Text="Jordan 11 Retro" TextColor="Black" Margin="10, 10, 0, 0"></Label>
+                            <Label Text="Cool Grey (2021)" TextColor="Black" Margin="10, 0"></Label>
+                            <Label Text="Lowest Ask" FontAttributes="Italic" TextColor="Black" Margin="10, 10, 0, 0"></Label>
+                            <Label Text="270 US$" FontAttributes="Bold" TextColor="Black" Margin="10, 0"></Label>
+                        </StackLayout>
+                        <Button BackgroundColor="Transparent" BorderWidth="1" BorderColor="LightGray"></Button>
+                    </Grid>
+                    <Grid HeightRequest="280">
+                        <StackLayout Padding="10" WidthRequest="160">
+                            <Image Source="https://images.milledcdn.com/2021-07-31/iyMxJvItyy0CmfnN/sbhk8r_iwMu5.png"
+                               WidthRequest="130" HeightRequest="130" HorizontalOptions="Center"></Image>
+                            <Label Text="Jordan 11 Retro" TextColor="Black" Margin="10, 10, 0, 0"></Label>
+                            <Label Text="Cool Grey (2021)" TextColor="Black" Margin="10, 0"></Label>
+                            <Label Text="Lowest Ask" FontAttributes="Italic" TextColor="Black" Margin="10, 10, 0, 0"></Label>
+                            <Label Text="270 US$" FontAttributes="Bold" TextColor="Black" Margin="10, 0"></Label>
+                        </StackLayout>
+                        <Button BackgroundColor="Transparent" BorderWidth="1" BorderColor="LightGray"></Button>
+                    </Grid>
+                </FlexLayout>-->
+
+                <Grid>
+                    <Label Text="Release Canlendar" TextColor="Black" FontAttributes="Bold" FontSize="20" Margin="10"></Label>
+                    <Button Text="See All" TextColor="DarkGreen"  FontAttributes="Bold" FontSize="16" BackgroundColor="Transparent" HorizontalOptions="End" TextTransform="None"></Button>
+                </Grid>
+                <FlexLayout Wrap="Wrap" x:Name="Sneakers_2" JustifyContent="SpaceAround">
+                    <Grid HeightRequest="300">
+                        <StackLayout Padding="10" WidthRequest="120">
+                            <Image Source="https://images.milledcdn.com/2021-07-31/iyMxJvItyy0CmfnN/sbhk8r_iwMu5.png"
+                               WidthRequest="130" HeightRequest="130" HorizontalOptions="Center"></Image>
+                            <Label Text="Jordan 11 Retro" TextColor="Black" Margin="10, 10, 0, 0"></Label>
+                            <Label Text="Cool Grey (2021)" TextColor="Black" Margin="10, 0"></Label>
+                        </StackLayout>
+                        <Button BackgroundColor="Transparent"></Button>
+                        <Button BackgroundColor="Transparent" Text="Bid" TextTransform="None" TextColor="DarkGreen" BorderWidth="2" BorderColor="DarkGreen" VerticalOptions="End" FontAttributes="Bold"></Button>
+                    </Grid>
+                    <Grid HeightRequest="300">
+                        <StackLayout Padding="10" WidthRequest="120">
+                            <Image Source="https://images.milledcdn.com/2021-07-31/iyMxJvItyy0CmfnN/sbhk8r_iwMu5.png"
+                               WidthRequest="130" HeightRequest="130" HorizontalOptions="Center"></Image>
+                            <Label Text="Jordan 11 Retro" TextColor="Black" Margin="10, 10, 0, 0"></Label>
+                            <Label Text="Cool Grey (2021)" TextColor="Black" Margin="10, 0"></Label>
+                        </StackLayout>
+                        <Button BackgroundColor="Transparent"></Button>
+                        <Button BackgroundColor="Transparent" Text="Bid" TextTransform="None" TextColor="DarkGreen" BorderWidth="2" BorderColor="DarkGreen" VerticalOptions="End" FontAttributes="Bold"></Button>
+                    </Grid>
+                </FlexLayout>
+                <Image Source="https://lavendermedia.vn/wp-content/uploads/2019/10/cach-chup-hinh-quang-cao-quan-ao.jpg" HeightRequest="300" WidthRequest="300"></Image>
+            </StackLayout>
+        </ScrollView>
+        </StackLayout>
+    </Grid>     
+        
 </ContentPage>

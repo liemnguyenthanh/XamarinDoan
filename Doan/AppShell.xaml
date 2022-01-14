@@ -5,6 +5,7 @@
     Shell.NavBarIsVisible="True"
     xmlns:home="clr-namespace:Doan.View.Products"
     xmlns:acc="clr-namespace:Doan.View.Account"
+    xmlns:filter="clr-namespace:Doan.View.Filter"
     x:Class="Doan.AppShell">
     <Shell.Resources>
         <ResourceDictionary>
@@ -27,13 +28,13 @@
 
     <TabBar>
         <Tab Title="Home" Icon="dashboard.png" >
-            <ShellContent ContentTemplate="{DataTemplate home:CategoryPage}"/>
+            <ShellContent ContentTemplate="{DataTemplate home:CategoryPage}" Route="CategoryPage"/>
         </Tab>
-        <Tab Title="Filter" Icon="profile.png" >
-            <ShellContent ContentTemplate="{DataTemplate home:ProductPage}"/>
+        <Tab Title="Filter" Icon="search.png" >
+            <ShellContent ContentTemplate="{DataTemplate filter:FilterPage}"/>
         </Tab>
         <Tab Title="Profile" Icon="profile.png" >
-            <ShellContent ContentTemplate="{DataTemplate acc:AccountPage}"/>
+            <ShellContent ContentTemplate="{DataTemplate acc:AccountPage}" Route="AccountPage"/>
         </Tab>
     </TabBar>
 </Shell>
